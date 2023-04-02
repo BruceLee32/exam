@@ -1,3 +1,18 @@
+% Packages 
+\usepackage{comment}
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{array}
+\renewcommand{\arraystretch}{2}
+
+% Grids
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+
+\usepackage{enumitem}
+\newlist{myenum}{enumerate}{2}
+\setlist[myenum]{label=(\alph*)}
+
 % Basics
 \renewcommand\familydefault{\sfdefault}
 \cfoot{}
@@ -7,18 +22,23 @@
 \pointformat{[\,\themarginpoints\,]}
 \bonuspointformat{[\,\themarginpoints\,]}
 
-% A B C => (a) (b) (c)
-\renewcommand{\choicelabel}{(\alph{choice})}
+% A B C => a.) (b.) (c.)
+\renewcommand{\choicelabel}{\alph{choice}.)}
+\renewcommand{\subpartlabel}{\roman{subpart}.)}
 
 % Horizontal Multiple Choice
 \usepackage{tabularx}
 
 \newcounter{choicecnt}
-\renewcommand\thechoice{(\alph{choicecnt})}
+\renewcommand\thechoice{\alph{choicecnt}.)}
 
 \newenvironment{mychoices}[1]
-{\setcounter{choicecnt}{0}\setlength{\extrarowheight}{1em}\par\tabularx{\textwidth}{@{}*{#1}{>{\stepcounter{choicecnt}\thechoice\hspace{1em}\arraybackslash}X}@{}}} 
+{\setcounter{choicecnt}{0}\setlength{\extrarowheight}{0.5em}\par\tabularx{\textwidth}{@{}*{#1}{>{\stepcounter{choicecnt}\thechoice\hspace{1em}\arraybackslash}X}@{}}} 
   {\endtabularx}
+
+\newenvironment{mychoices2}[1]
+{\setcounter{choicecnt}{0}\setlength{\extrarowheight}{0.5em}\par\tabularx{\textwidth}{@{}*{#1}{>{\stepcounter{choicecnt}\textnormal{\roman{choicecnt}.)}\hspace{1em}\arraybackslash}X}@{}}}
+{\endtabularx}
 
 % Inkscape Figures
 \usepackage{import}
@@ -48,7 +68,6 @@
 % \usepackage{xfrac}
 % \usepackage[usenames,dvipsnames]{xcolor} % usenames, dvipsnames adds more colours
 % \usepackage{hhline}
-\usepackage{comment}
 % \usepackage{tasks}
 % \usepackage{enumerate} 
 % \usepackage{enumitem} 
@@ -238,3 +257,4 @@
 % }
 % {
 % \end{exampleswap}}
+
