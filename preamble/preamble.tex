@@ -16,7 +16,7 @@
 \renewcommand\thechoice{(\alph{choicecnt})}
 
 \newenvironment{mychoices}[1]
-{\setcounter{choicecnt}{0}\par\tabularx{\textwidth}{@{}*{#1}{>{\stepcounter{choicecnt}\thechoice\hspace{1em}\arraybackslash}X}@{}}} 
+{\setcounter{choicecnt}{0}\setlength{\extrarowheight}{1em}\par\tabularx{\textwidth}{@{}*{#1}{>{\stepcounter{choicecnt}\thechoice\hspace{1em}\arraybackslash}X}@{}}} 
   {\endtabularx}
 
 % Inkscape Figures
